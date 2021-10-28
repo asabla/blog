@@ -13,8 +13,15 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
-# ignores produced public directory by hug
+# hugo ignore rules
 public/
+resources/_gen
+hugo_stats.json
+
+# Executeable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
 
 # Mono auto generated files
 mono_crash.*
