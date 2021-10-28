@@ -8,7 +8,7 @@ tags:
     - "random"
     - "learning"
     - "blog"
-draft: true
+draft: false
 ---
 
 This is my first post on this blog using Hugo and Github pages. I will use this blog/whatever it is for learning
