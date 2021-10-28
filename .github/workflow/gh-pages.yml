@@ -1,0 +1,33 @@
+name: Build blog for github pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request: # not listening to any pr's as of yet
+
+jobs:
+
+  # Build & deploy job
+  deploy:
+    runs-on: Ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Is required to fetch Hugo themes
+          fetch-depth: 0    # no need to get all history when fetching
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      - name: Build blog
+        run: hugo --minify
+
+      - name: Deploy blog
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
