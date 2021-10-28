@@ -7,9 +7,11 @@ paginate = 10
 [Author]
     name = "asabla"
     bio = "Just your average developer monkey"
-    authorbox = true
     related = true
     relatedMax = 5
+
+[Params]
+    authorbox = true
 
 [Params.Entry]
     tor = true
