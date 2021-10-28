@@ -6,7 +6,7 @@ paginate = 10
 
 [Author]
     name = "asabla"
-    bio = "Just your avarage developer monkey"
+    bio = "Just your average developer monkey"
     authorbox = true
     related = true
     relatedMax = 5
