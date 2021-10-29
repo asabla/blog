@@ -6,6 +6,9 @@ on:
       - main
   pull_request: # not listening to any pr's as of yet
 
+  # allows to run workflow manually from actions tab
+  workflow_dispatch:
+
 jobs:
 
   # Build & deploy job
