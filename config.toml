@@ -5,48 +5,49 @@ theme = "binario"
 paginate = 10
 
 [Author]
-    name = "asabla"
-    bio = "Just your average developer monkey"
-    related = true
-    relatedMax = 5
+  name = "asabla"
+  bio = "Just your average developer monkey"
+  related = true
+  relatedMax = 5
 
 [Params]
-    authorbox = true
+  authorbox = true
 
 [Params.Entry]
-    tor = true
-    tocOpen = true
+  tor = true
+  tocOpen = true
 
 [Params.Featured]
-    previewOnly = false
+  previewOnly = false
 
 [Params.Breadcrumb]
-    enable = true
-    homeText = "Home"
+  enable = true
+  homeText = "Home"
 
 [Params.Social]
-    github = "asabla"
+  github = "asabla"
+
 
 # Web App Manifest settings
 # https://www.w3.org/TR/appmanifest/
 # https://developers.google.com/web/fundamentals/web-app-manifest/
 [Params.Manifest]
-    name = "Binario"
-    shortName = "Binario"
-    display = "browser"
-    startUrl = "/"
-    backgroundColor = "#2a2a2a"
-    themeColor = "#1b1b1b"
-    description = "Responsive card-based & code-light Hugo theme"
-    orientation = "portrait"
-    scope = "/"
+  name = "Binario"
+  shortName = "Binario"
+  display = "browser"
+  startUrl = "/"
+  backgroundColor = "#2a2a2a"
+  themeColor = "#1b1b1b"
+  description = "Responsive card-based & code-light Hugo theme"
+  orientation = "portrait"
+  scope = "/"
 
 [outputFormats]
-    [outputFormats.MANIFEST]
-        mediaType = "application/json"
-        baseName = "manifest"
-        isPlainText = true
-        notAlternative = true
+  [outputFormats.MANIFEST]
+    mediaType = "application/json"
+    baseName = "manifest"
+    isPlainText = true
+    notAlternative = true
 
 [outputs]
-    home = ["HTML", "RSS", "MANIFEST"]
+  home = ["HTML", "RSS", "MANIFEST"]
