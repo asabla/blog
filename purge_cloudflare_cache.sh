@@ -36,6 +36,11 @@ function poll_build_status() {
         --header "Accept: application/vnd.github.v3+json" \
         "https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/pages/builds/latest")
 
+      curl \
+        --user "${GITHUB_USER}:${GITHUB_TOKEN}" \
+        --header "Accept: application/vnd.github.v3+json" \
+        "https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/pages/builds/lates"
+
       grepResult=$(echo curlResult | grep '"status": "built"')
       echo "grep result: ${grepResult}"
 
