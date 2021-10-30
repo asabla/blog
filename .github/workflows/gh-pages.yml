@@ -12,8 +12,8 @@ on:
 jobs:
 
   # Build & deploy job
-  deploy:
-    runs-on: "ubuntu-20.04"
+  deploy-and-deploy:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
@@ -24,11 +24,12 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
+          extended: true  # might not be needed for current setup
 
       - name: Build blog
         run: hugo --minify
 
-      - name: Deploy blog
+      - name: Deploy blog to github pages
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
         with:
