@@ -4,8 +4,8 @@ readonly DELAY_SECONDS=15
 readonly INTERVAL_SECONDS=5
 readonly TIMEOUT_SECONDS=90
 
-readonly GITHUB_USER=asabla
-readonly GITHUB_REPO=asabla.github.io/blog
+#readonly GITHUB_USER=asabla
+#readonly GITHUB_REPO=asabla.github.io/blog
 
 
 ##################################################
@@ -32,14 +32,10 @@ function poll_build_status() {
 
     while [[ "${waited_seconds}" -lt "${TIMEOUT_SECONDS}" ]]; do
       curlResult=$(curl \
+        --silent \
         --user "${GITHUB_USER}:${GITHUB_TOKEN}" \
         --header "Accept: application/vnd.github.v3+json" \
         "https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/pages/builds/latest")
-
-      curl \
-        --user "${GITHUB_USER}:${GITHUB_TOKEN}" \
-        --header "Accept: application/vnd.github.v3+json" \
-        "https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/pages/builds/lates"
 
       grepResult=$(echo curlResult | grep '"status": "built"')
       echo "grep result: ${grepResult}"
