@@ -32,7 +32,7 @@ function poll_build_status() {
 
     while [[ "${waited_seconds}" -lt "${TIMEOUT_SECONDS}" ]]; do
       curlResult=$(curl \
-        --silent --user "${GITHUB_USER}:${GIT_TOKEN}" \
+        --user "${GITHUB_USER}:${GITHUB_TOKEN}" \
         --header "Accept: application/vnd.github.v3+json" \
         "https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/pages/builds/latest")
 
