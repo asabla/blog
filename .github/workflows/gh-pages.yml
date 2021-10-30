@@ -43,4 +43,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           chmod +x ./purge_cloudflare_cache.sh
-          ./purge_cloudflare_cache.sh
+          ./purge_cloudflare_cache.sh ${{ secrets.GITHUB_USER }} ${{ secrets.GITHUB_REPO }} ${{ secrets.GITHUB_TOKEN }}
