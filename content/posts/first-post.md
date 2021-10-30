@@ -15,6 +15,7 @@ This is my first post on this blog using Hugo and Github pages. I will use this 
 <!--more-->
 
 ### Purpose of this blog thingy
+
 This small site will be my main place to write about things I learn within my profession or any hobbies which may find their way out on the interwebs. Part of the process of posting here will be to document things I learn about programming, hosting or any IT-stuff in general basically.
 
 My goal is to write at least one post a month with a specific topic in mind, be it either about programming or movies
