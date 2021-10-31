@@ -42,6 +42,11 @@ jobs:
           GITHUB_REPO: ${{ secrets.GITHUB_REPO }}
         run: echo "user $GITHUB_USER repo $GITHUB_REPO"
 
+      - name: get run number
+        env:
+          RUN_NR: ${{ github.run_number }}
+        run: echo $RUN_NR
+
       - name: Purge cloudflare cache
         env:
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
