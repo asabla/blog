@@ -45,4 +45,4 @@ jobs:
           GITHUB_REPO: ${{ secrets.GITHUB_REPO }}
         run: |
           chmod +x ./purge_cloudflare_cache.sh
-          ./purge_cloudflare_cache.sh
+          ./purge_cloudflare_cache.sh ${ GITHUB_USER }

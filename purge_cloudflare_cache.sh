@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+declare GITHUB_USER=$1
+
 readonly DELAY_SECONDS=15
 readonly INTERVAL_SECONDS=5
 readonly TIMEOUT_SECONDS=90
