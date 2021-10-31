@@ -36,6 +36,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
 
+      - name: dump run information
+        env:
+          GITHUB_USER: ${{ secrets.GITHUB_USER }}
+          GITHUB_REPO: ${{ secrets.GITHUB_REPO }}
+        run:
+          echo "github_user: $GITHUB_USER  github_repo: $GITHUB_REPO"
+
       - name: Purge cloudflare cache
         env:
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
