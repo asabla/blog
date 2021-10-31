@@ -36,11 +36,10 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
 
-      - name: dump run information
+      - name: dump github context
         env:
-          GUSER: ${{ secrets.GITHUB_USER }}
-          GREPO: ${{ secrets.GITHUB_REPO }}
-        run: echo "user $GUSER repo $GREPO"
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo $GITHUB_CONTEXT
 
       - name: Purge cloudflare cache
         env:
