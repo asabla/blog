@@ -41,7 +41,7 @@ jobs:
           GITHUB_USER: ${{ secrets.GITHUB_USER }}
           GITHUB_REPO: ${{ secrets.GITHUB_REPO }}
         run:
-          echo "github_user: $GITHUB_USER  github_repo: $GITHUB_REPO"
+          'echo "github_user: $GITHUB_USER  github_repo: $GITHUB_REPO"'
 
       - name: Purge cloudflare cache
         env:
