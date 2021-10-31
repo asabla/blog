@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 declare GITHUB_USER=$1
+declare GITHUB_REPO=$2
 
 readonly DELAY_SECONDS=15
 readonly INTERVAL_SECONDS=5

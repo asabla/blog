@@ -38,22 +38,17 @@ jobs:
 
       - name: dump run information
         env:
-          GITHUB_USER: ${{ secrets.GITHUB_USER }}
-          GITHUB_REPO: ${{ secrets.GITHUB_REPO }}
-        run: echo "user $GITHUB_USER repo $GITHUB_REPO"
-
-      - name: get run number
-        env:
-          RUN_NR: ${{ github.run_number }}
-        run: echo $RUN_NR
+          GUSER: ${{ secrets.GITHUB_USER }}
+          GREPO: ${{ secrets.GITHUB_REPO }}
+        run: echo "user $GUSER repo $GREPO"
 
       - name: Purge cloudflare cache
         env:
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_USER: ${{ secrets.GITHUB_USER }}
-          GITHUB_REPO: ${{ secrets.GITHUB_REPO }}
+          GTOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GUSER: ${{ secrets.GITHUB_USER }}
+          GREPO: ${{ secrets.GITHUB_REPO }}
         run: |
           chmod +x ./purge_cloudflare_cache.sh
-          ./purge_cloudflare_cache.sh ${{ secrets.GITHUB_USER }}
+          ./purge_cloudflare_cache.sh $GUSER $GREPO
