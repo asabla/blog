@@ -88,13 +88,17 @@ function purge_cache() {
 #   None
 ##################################################
 function main() {
-    echo "Sleeping for ${DELAY_SECONDS} seconds..."
-    sleep "${DELAY_SECONDS}"
-    poll_build_status || exit 1
+  echo "some env variables..."
+  echo "github_user: ${GITHUB_USER}  github_repo:${GITHUB_REPO}"
 
-    echo "Sleeping for ${DELAY_SECONDS} seconds..."
-    sleep "${DELAY_SECONDS}"
-    purge_cache || exit 1
+
+  echo "Sleeping for ${DELAY_SECONDS} seconds..."
+  sleep "${DELAY_SECONDS}"
+  poll_build_status || exit 1
+
+  echo "Sleeping for ${DELAY_SECONDS} seconds..."
+  sleep "${DELAY_SECONDS}"
+  purge_cache || exit 1
 }
 
 # Entrypoint
