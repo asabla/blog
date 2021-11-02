@@ -47,7 +47,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           GTOKEN: ${{ github.token }}
           GUSER: ${{ github.repository_owner }}
-          GREPO: ${{ github. }}
+          GREPO: blog
         run: |
           chmod +x ./purge_cloudflare_cache.sh
           ./purge_cloudflare_cache.sh $GUSER $GREPO
