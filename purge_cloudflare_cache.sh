@@ -38,7 +38,8 @@ function poll_build_status() {
         "https://api.github.com/repos/${GUSER}/${GREPO}/pages/builds/latest")
 
       grepResult=$(echo curlResult | grep '"status": "built"')
-      echo "grep result: ${grepResult}"
+      # echo "grep result: ${grepResult}"
+      echo "curlResult: $curlResult"
 
       if echo "${curlResult}" | grep -q '"status": "built"'; then
         echo "Success!"
