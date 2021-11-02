@@ -29,13 +29,16 @@ function poll_build_status() {
     local waited_seconds=0
     local curlResult=''
     local grepResult=''
+    local requestUrl='https://api.github.com/repos/$GUSER/$GREPO/pages/builds/latest'
+
+    echo "Using this url for requests: $requestUrl"
 
     while [[ "${waited_seconds}" -lt "${TIMEOUT_SECONDS}" ]]; do
       curlResult=$(curl \
         --silent \
         --user "${GUSER}:${GITHUB_TOKEN}" \
         --header "Accept: application/vnd.github.v3+json" \
-        "https://api.github.com/repos/${GUSER}/${GREPO}/pages/builds/latest")
+        "$requestUrl")
 
       grepResult=$(echo curlResult | grep '"status": "built"')
       # echo "grep result: ${grepResult}"
