@@ -95,6 +95,12 @@ function main() {
   echo "some env variables..."
   echo "github_user: ${GUSER}  github_repo:${GREPO}"
 
+  if [ -n "$GTOKEN" ]; then
+    echo "GTOKEN is not empty"
+  else
+    echo "GTOKEN is empty"
+  fi
+
   echo "Sleeping for ${DELAY_SECONDS} seconds..."
   sleep "${DELAY_SECONDS}"
   poll_build_status || exit 1
