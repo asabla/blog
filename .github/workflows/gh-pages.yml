@@ -45,9 +45,9 @@ jobs:
         env:
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          GTOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GUSER: ${{ secrets.GITHUB_USER }}
-          GREPO: ${{ secrets.GITHUB_REPO }}
+          GTOKEN: ${{ github.token }}
+          GUSER: ${{ github.repository_owner }}
+          GREPO: ${{ github. }}
         run: |
           chmod +x ./purge_cloudflare_cache.sh
           ./purge_cloudflare_cache.sh $GUSER $GREPO

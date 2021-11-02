@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-declare GITHUB_USER=$1
-declare GITHUB_REPO=$2
+declare GUSER=$1
+declare GREPO=$2
 
 readonly DELAY_SECONDS=15
 readonly INTERVAL_SECONDS=5
@@ -11,9 +11,9 @@ readonly TIMEOUT_SECONDS=90
 # Poll status of latest GitHub Pages build every INTERVAL_SECONDS seconds for up
 # to TIMEOUT_SECONDS seconds.
 # Globals:
-#   GITHUB_REPO
+#   GREPO
 #   GITHUB_TOKEN
-#   GITHUB_USER
+#   GUSER
 #   INTERVAL_SECONDS
 #   TIMEOUT_SECONDS
 # Arguments:
@@ -32,9 +32,9 @@ function poll_build_status() {
     while [[ "${waited_seconds}" -lt "${TIMEOUT_SECONDS}" ]]; do
       curlResult=$(curl \
         --silent \
-        --user "${GITHUB_USER}:${GITHUB_TOKEN}" \
+        --user "${GUSER}:${GITHUB_TOKEN}" \
         --header "Accept: application/vnd.github.v3+json" \
-        "https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/pages/builds/latest")
+        "https://api.github.com/repos/${GUSER}/${GREPO}/pages/builds/latest")
 
       grepResult=$(echo curlResult | grep '"status": "built"')
       echo "grep result: ${grepResult}"
@@ -92,8 +92,7 @@ function purge_cache() {
 ##################################################
 function main() {
   echo "some env variables..."
-  echo "github_user: ${GITHUB_USER}  github_repo:${GITHUB_REPO}"
-
+  echo "github_user: ${GUSER}  github_repo:${GREPO}"
 
   echo "Sleeping for ${DELAY_SECONDS} seconds..."
   sleep "${DELAY_SECONDS}"
