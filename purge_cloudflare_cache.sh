@@ -2,6 +2,7 @@
 
 declare GUSER=$1
 declare GREPO=$2
+declare GTOKEN=$3
 
 readonly DELAY_SECONDS=15
 readonly INTERVAL_SECONDS=5

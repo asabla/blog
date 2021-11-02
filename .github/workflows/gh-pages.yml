@@ -50,4 +50,4 @@ jobs:
           GREPO: blog
         run: |
           chmod +x ./purge_cloudflare_cache.sh
-          ./purge_cloudflare_cache.sh $GUSER $GREPO
+          ./purge_cloudflare_cache.sh $GUSER $GREPO $GTOKEN
