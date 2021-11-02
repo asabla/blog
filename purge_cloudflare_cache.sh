@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 declare GUSER=$1
 declare GREPO=$2
@@ -8,22 +8,6 @@ readonly DELAY_SECONDS=15
 readonly INTERVAL_SECONDS=5
 readonly TIMEOUT_SECONDS=90
 
-##################################################
-# Poll status of latest GitHub Pages build every INTERVAL_SECONDS seconds for up
-# to TIMEOUT_SECONDS seconds.
-# Globals:
-#   GREPO
-#   GITHUB_TOKEN
-#   GUSER
-#   INTERVAL_SECONDS
-#   TIMEOUT_SECONDS
-# Arguments:
-#   None
-# Outputs:
-#   Success message to stdout or error message to stderr.
-# Returns:
-#   0 on success, 1 otherwise.
-##################################################
 function poll_build_status() {
     echo "Awaiting for build completion of latest github pages..."
     local waited_seconds=0
@@ -36,39 +20,31 @@ function poll_build_status() {
     while [[ "${waited_seconds}" -lt "${TIMEOUT_SECONDS}" ]]; do
       curlResult=$(curl \
         --silent \
-        --user "${GUSER}:${GITHUB_TOKEN}" \
+        --user "${GUSER}:${GTOKEN}" \
         --header "Accept: application/vnd.github.v3+json" \
         "$requestUrl")
 
-      grepResult=$(echo curlResult | grep '"status": "built"')
-      # echo "grep result: ${grepResult}"
-      echo "curlResult: $curlResult"
+			# For debug
+      #echo "curlResult: $curlResult"
 
       if echo "${curlResult}" | grep -q '"status": "built"'; then
         echo "Success!"
         return 0
+      else
+				# For debug
+        #echo "Got something else!"
+        #echo "${curlResult}"
       fi
+
       echo " sleeping ${INTERVAL_SECONDS} seconds until next status poll..."
       sleep "${INTERVAL_SECONDS}"
       (( waited_seconds += INTERVAL_SECONDS ))
     done
+
     echo "Error!" >&2
     return 1
 }
 
-
-##################################################
-# Purge entire Cloudflare cache.
-# Globals:
-#   CLOUDFLARE_API_TOKEN
-#   CLOUDFLARE_ZONE_ID
-# Arguments:
-#   None
-# Outputs:
-#   Success message to stdout or error message to stderr.
-# Returns:
-#   0 on success, 1 otherwise.
-##################################################
 function purge_cache() {
     echo "Purging Cloudflare cache..."
     if curl \
@@ -87,23 +63,10 @@ function purge_cache() {
     fi
 }
 
-
-##################################################
-# Main function of script.
-# Globals:
-#   DELAY_SECONDS
-# Arguments:
-#   None
-##################################################
 function main() {
-  echo "some env variables..."
-  echo "github_user: ${GUSER}  github_repo:${GREPO}"
-
-  if [ -n "$GTOKEN" ]; then
-    echo "GTOKEN is not empty"
-  else
-    echo "GTOKEN is empty"
-  fi
+  # For debug
+	#echo "some env variables..."
+  #echo "github_user: ${GUSER}  github_repo:${GREPO}"
 
   echo "Sleeping for ${DELAY_SECONDS} seconds..."
   sleep "${DELAY_SECONDS}"
@@ -114,5 +77,4 @@ function main() {
   purge_cache || exit 1
 }
 
-# Entrypoint
 main "$@"
