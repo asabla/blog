@@ -30,7 +30,7 @@ function poll_build_status() {
       if echo "${curlResult}" | grep -q '"status": "built"'; then
         echo "Success!"
         return 0
-      else
+      # else
 				# For debug
         #echo "Got something else!"
         #echo "${curlResult}"
