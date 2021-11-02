@@ -29,7 +29,7 @@ function poll_build_status() {
     local waited_seconds=0
     local curlResult=''
     local grepResult=''
-    local requestUrl='https://api.github.com/repos/${GUSER}/${GREPO}/pages/builds/latest'
+    local requestUrl="https://api.github.com/repos/${GUSER}/${GREPO}/pages/builds/latest"
 
     echo "Using this url for requests: $requestUrl"
 
