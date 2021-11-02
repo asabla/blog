@@ -15,7 +15,8 @@ function poll_build_status() {
     local grepResult=''
     local requestUrl="https://api.github.com/repos/${GUSER}/${GREPO}/pages/builds/latest"
 
-    echo "Using this url for requests: $requestUrl"
+    # For debug
+    # echo "Using this url for requests: $requestUrl"
 
     while [[ "${waited_seconds}" -lt "${TIMEOUT_SECONDS}" ]]; do
       curlResult=$(curl \
