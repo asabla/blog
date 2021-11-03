@@ -6,7 +6,7 @@ categories:
 tags:
   - "random"
   - "blog"
-draft: true
+draft: false
 ---
 
 So it finally happened. Everything seems to be in place, workflows no longer throws errors and cache is being purged upon publish.
