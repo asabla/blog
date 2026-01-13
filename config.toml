@@ -33,7 +33,7 @@ paginate = 10
 # https://developers.google.com/web/fundamentals/web-app-manifest/
 [Params.Manifest]
   name = "Just a bunch of stuff"
-  shortName = "asabla's blog"
+  shortName = "asabla blog"
   display = "browser"
   startUrl = "/"
   backgroundColor = "#2a2a2a"
