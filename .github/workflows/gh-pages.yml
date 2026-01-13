@@ -23,8 +23,8 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
-          extended: true  # might not be needed for current setup
+          hugo-version: '0.139.3'
+          extended: true
 
       - name: Build blog
         run: hugo
