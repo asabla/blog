@@ -41,13 +41,9 @@ jobs:
       #     GITHUB_CONTEXT: ${{ toJson(github) }}
       #   run: echo $GITHUB_CONTEXT
 
-      - name: Purge cloudflare cache
+      - name: Purge Cloudflare cache
+        if: github.ref == 'refs/heads/main'
+        uses: jakejarvis/cloudflare-purge-action@master
         env:
-          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          GTOKEN: ${{ github.token }}
-          GUSER: ${{ github.repository_owner }}
-          GREPO: blog
-        run: |
-          chmod +x ./purge_cloudflare_cache.sh
-          ./purge_cloudflare_cache.sh $GUSER $GREPO $GTOKEN
+          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
