@@ -35,15 +35,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-
-      # - name: dump github context
-      #   env:
-      #     GITHUB_CONTEXT: ${{ toJson(github) }}
-      #   run: echo $GITHUB_CONTEXT
-
-      - name: Purge Cloudflare cache
-        if: github.ref == 'refs/heads/main'
-        uses: jakejarvis/cloudflare-purge-action@master
-        env:
-          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE_ID }}
-          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
