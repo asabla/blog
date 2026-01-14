@@ -6,14 +6,14 @@ theme = "binario"
 [pagination]
   pagerSize = 10
 
-[Author]
+[Params]
+  authorbox = true
+
+[Params.Author]
   name = "asabla"
   bio = "Just your average developer monkey"
   related = true
   relatedMax = 5
-
-[Params]
-  authorbox = true
 
 [Params.Entry]
   tor = true
