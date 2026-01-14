@@ -2,7 +2,9 @@ baseURL = "/"
 languageCode = "en-us"
 title = "Just a bunch of stuff"
 theme = "binario"
-paginate = 10
+
+[pagination]
+  pagerSize = 10
 
 [Author]
   name = "asabla"
