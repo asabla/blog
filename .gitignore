@@ -17,6 +17,7 @@
 public/
 resources/_gen
 hugo_stats.json
+.hugo_build.lock
 
 # Executeable may be added to repository
 hugo.exe
