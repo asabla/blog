@@ -95,10 +95,36 @@
 <li>And another item</li>
 </ul>
 <h3 id="nested-list">Nested list</h3>
-<!-- raw HTML omitted -->
+<ul>
+  <li>First item</li>
+  <li>Second item
+    <ul>
+      <li>Second item First subitem</li>
+      <li>Second item second subitem
+        <ul>
+          <li>Second item Second subitem First sub-subitem</li>
+          <li>Second item Second subitem Second sub-subitem</li>
+          <li>Second item Second subitem Third sub-subitem</li>
+        </ul>
+      </li>
+      <li>Second item Third subitem
+        <ol>
+          <li>Second item Third subitem First sub-subitem</li>
+          <li>Second item Third subitem Second sub-subitem</li>
+          <li>Second item Third subitem Third sub-subitem</li>
+        </ol>
+    </ul>
+  </li>
+  <li>Third item</li>
+</ul>
 <h3 id="definition-list">Definition List</h3>
 <p>HTML also supports definition lists.</p>
-<!-- raw HTML omitted -->
+<dl>
+  <dt>Blanco tequila</dt>
+  <dd>The purest form of the blue agave spirit...</dd>
+  <dt>Reposado tequila</dt>
+  <dd>Typically aged in wooden barrels for between two and eleven months...</dd>
+</dl>
 <h2 id="blockquotes">Blockquotes</h2>
 <p>The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a <code>footer</code> or <code>cite</code> element, and optionally with in-line changes such as annotations and abbreviations.</p>
 <blockquote>
@@ -107,8 +133,11 @@ This line is part of the same quote.
 Also you can <em>put</em> <strong>Markdown</strong> into a blockquote.</p>
 </blockquote>
 <p>Blockquote with a citation.</p>
-<!-- raw HTML omitted -->
-<p>According to Mozilla&rsquo;s website, <!-- raw HTML omitted -->Firefox 1.0 was released in 2004 and became a big success.<!-- raw HTML omitted --></p>
+<blockquote>
+  <p>My goal wasn't to make a ton of money. It was to build good computers. I only started the company when I realized I could be an engineer forever.</p>
+  <footer>— <cite>Steve Wozniak</cite></footer>
+</blockquote>
+<p>According to Mozilla&rsquo;s website, <q cite="https://www.mozilla.org/en-US/about/history/details/">Firefox 1.0 was released in 2004 and became a big success.</q></p>
 <h2 id="tables">Tables</h2>
 <p>Tables aren&rsquo;t part of the core Markdown spec, but Hugo supports them.</p>
 <table>
@@ -210,12 +239,12 @@ Also you can <em>put</em> <strong>Markdown</strong> into a blockquote.</p>
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;</span></span></code></pre></div>
 <h2 id="other-stuff--abbr-sub-sup-kbd-etc">Other stuff — abbr, sub, sup, kbd, etc.</h2>
-<p><!-- raw HTML omitted -->GIF<!-- raw HTML omitted --> is a bitmap image format.</p>
-<p>H<!-- raw HTML omitted -->2<!-- raw HTML omitted -->O</p>
-<p>C<!-- raw HTML omitted -->6<!-- raw HTML omitted -->H<!-- raw HTML omitted -->12<!-- raw HTML omitted -->O<!-- raw HTML omitted -->6<!-- raw HTML omitted --></p>
-<p>X<!-- raw HTML omitted -->n<!-- raw HTML omitted --> + Y<!-- raw HTML omitted -->n<!-- raw HTML omitted --> = Z<!-- raw HTML omitted -->n<!-- raw HTML omitted --></p>
-<p>Press <!-- raw HTML omitted -->X<!-- raw HTML omitted --> to win. Or press <!-- raw HTML omitted --><!-- raw HTML omitted -->CTRL<!-- raw HTML omitted -->+<!-- raw HTML omitted -->ALT<!-- raw HTML omitted -->+<!-- raw HTML omitted -->F<!-- raw HTML omitted --><!-- raw HTML omitted --> to show FPS counter.</p>
-<p><!-- raw HTML omitted -->As a unit of information in information theory, the bit has alternatively been called a shannon<!-- raw HTML omitted -->, named after Claude Shannon, the founder of field of information theory.</p></div>
+<p><abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.</p>
+<p>H<sub>2</sub>O</p>
+<p>C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></p>
+<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
+<p>Press <kbd>X</kbd> to win. Or press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>F</kbd></kbd> to show FPS counter.</p>
+<p><mark>As a unit of information in information theory, the bit has alternatively been called a shannon</mark>, named after Claude Shannon, the founder of field of information theory.</p></div>
 				
 				<footer class="entry__footer">
 					
