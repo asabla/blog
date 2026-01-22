@@ -1,7 +1,12 @@
-baseURL = "/"
+baseURL = "https://blog.asabla.net/"
 languageCode = "en-us"
 title = "Just a bunch of stuff"
 theme = "binario"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [pagination]
   pagerSize = 10

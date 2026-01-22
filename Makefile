@@ -18,7 +18,8 @@ help:
 # Start development server with drafts and live reload
 server:
 	@echo "Starting Hugo development server..."
-	hugo server -D --bind 0.0.0.0
+	# hugo server -D --bind 0.0.0.0
+	hugo server -D
 
 # Build the site for production
 build:
